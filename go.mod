@@ -1,4 +1,4 @@
-module github.com/ionos-cloud/go
+module github.com/ionos-cloud/sdk-go-apigateway
 
 go 1.18
 
