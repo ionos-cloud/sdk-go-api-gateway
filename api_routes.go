@@ -422,13 +422,14 @@ func (r ApiApigatewaysRoutesGetRequest) Execute() (RouteReadList, *APIResponse, 
 }
 
 /*
- * ApigatewaysRoutesGet Retrieve all Routes
- * This endpoint enables retrieving all Routes using
+  - ApigatewaysRoutesGet Retrieve all Routes
+  - This endpoint enables retrieving all Routes using
+
 pagination and optional filters.
 
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param apigatewayId The ID (UUID) of the Gateway.
- * @return ApiApigatewaysRoutesGetRequest
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param apigatewayId The ID (UUID) of the Gateway.
+  - @return ApiApigatewaysRoutesGetRequest
 */
 func (a *RoutesApiService) ApigatewaysRoutesGet(ctx _context.Context, apigatewayId string) ApiApigatewaysRoutesGetRequest {
 	return ApiApigatewaysRoutesGetRequest{
@@ -616,15 +617,15 @@ func (r ApiApigatewaysRoutesPostRequest) Execute() (RouteRead, *APIResponse, err
 }
 
 /*
- * ApigatewaysRoutesPost Create Route
- * Creates a new Route.
+  - ApigatewaysRoutesPost Create Route
+  - Creates a new Route.
 
 The full Route needs to be provided to create the object.
 Optional data will be filled with defaults or left empty.
 
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param apigatewayId The ID (UUID) of the Gateway.
- * @return ApiApigatewaysRoutesPostRequest
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param apigatewayId The ID (UUID) of the Gateway.
+  - @return ApiApigatewaysRoutesPostRequest
 */
 func (a *RoutesApiService) ApigatewaysRoutesPost(ctx _context.Context, apigatewayId string) ApiApigatewaysRoutesPostRequest {
 	return ApiApigatewaysRoutesPostRequest{
@@ -827,17 +828,18 @@ func (r ApiApigatewaysRoutesPutRequest) Execute() (RouteRead, *APIResponse, erro
 }
 
 /*
- * ApigatewaysRoutesPut Ensure Route
- * Ensures that the Route with the provided ID is created or modified.
+  - ApigatewaysRoutesPut Ensure Route
+  - Ensures that the Route with the provided ID is created or modified.
+
 The full Route needs to be provided to ensure
 (either update or create) the Route. Non present data will
 only be filled with defaults or left empty, but not take
 previous values into consideration.
 
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param apigatewayId The ID (UUID) of the Gateway.
- * @param routeId The ID (UUID) of the Route.
- * @return ApiApigatewaysRoutesPutRequest
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param apigatewayId The ID (UUID) of the Gateway.
+  - @param routeId The ID (UUID) of the Route.
+  - @return ApiApigatewaysRoutesPutRequest
 */
 func (a *RoutesApiService) ApigatewaysRoutesPut(ctx _context.Context, apigatewayId string, routeId string) ApiApigatewaysRoutesPutRequest {
 	return ApiApigatewaysRoutesPutRequest{
@@ -956,7 +958,7 @@ func (a *RoutesApiService) ApigatewaysRoutesPutExecute(r ApiApigatewaysRoutesPut
 			}
 			newErr.model = v
 		}
-		if localVarHTTPResponse.StatusCode == 409 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -965,7 +967,7 @@ func (a *RoutesApiService) ApigatewaysRoutesPutExecute(r ApiApigatewaysRoutesPut
 			}
 			newErr.model = v
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

@@ -33,7 +33,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/go"
+    ionoscloud "github.com/ionos-cloud/sdk-go-api-gateway"
 )
 
 func main() {
@@ -115,7 +115,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/go"
+    ionoscloud "github.com/ionos-cloud/sdk-go-api-gateway"
 )
 
 func main() {
@@ -202,7 +202,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/go"
+    ionoscloud "github.com/ionos-cloud/sdk-go-api-gateway"
 )
 
 func main() {
@@ -291,7 +291,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/go"
+    ionoscloud "github.com/ionos-cloud/sdk-go-api-gateway"
 )
 
 func main() {
@@ -376,7 +376,7 @@ import (
     "fmt"
     "os"
 
-    ionoscloud "github.com/ionos-cloud/go"
+    ionoscloud "github.com/ionos-cloud/sdk-go-api-gateway"
 )
 
 func main() {

@@ -413,12 +413,13 @@ func (r ApiApigatewaysGetRequest) Execute() (GatewayReadList, *APIResponse, erro
 }
 
 /*
- * ApigatewaysGet Retrieve all Apigateways
- * This endpoint enables retrieving all Apigateways using
+  - ApigatewaysGet Retrieve all Apigateways
+  - This endpoint enables retrieving all Apigateways using
+
 pagination and optional filters.
 
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiApigatewaysGetRequest
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @return ApiApigatewaysGetRequest
 */
 func (a *APIGatewaysApiService) ApigatewaysGet(ctx _context.Context) ApiApigatewaysGetRequest {
 	return ApiApigatewaysGetRequest{
@@ -603,14 +604,14 @@ func (r ApiApigatewaysPostRequest) Execute() (GatewayRead, *APIResponse, error) 
 }
 
 /*
- * ApigatewaysPost Create Gateway
- * Creates a new Gateway.
+  - ApigatewaysPost Create Gateway
+  - Creates a new Gateway.
 
 The full Gateway needs to be provided to create the object.
 Optional data will be filled with defaults or left empty.
 
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiApigatewaysPostRequest
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @return ApiApigatewaysPostRequest
 */
 func (a *APIGatewaysApiService) ApigatewaysPost(ctx _context.Context) ApiApigatewaysPostRequest {
 	return ApiApigatewaysPostRequest{
@@ -810,16 +811,17 @@ func (r ApiApigatewaysPutRequest) Execute() (GatewayRead, *APIResponse, error) {
 }
 
 /*
- * ApigatewaysPut Ensure Gateway
- * Ensures that the Gateway with the provided ID is created or modified.
+  - ApigatewaysPut Ensure Gateway
+  - Ensures that the Gateway with the provided ID is created or modified.
+
 The full Gateway needs to be provided to ensure
 (either update or create) the Gateway. Non present data will
 only be filled with defaults or left empty, but not take
 previous values into consideration.
 
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param apigatewayId The ID (UUID) of the Gateway.
- * @return ApiApigatewaysPutRequest
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param apigatewayId The ID (UUID) of the Gateway.
+  - @return ApiApigatewaysPutRequest
 */
 func (a *APIGatewaysApiService) ApigatewaysPut(ctx _context.Context, apigatewayId string) ApiApigatewaysPutRequest {
 	return ApiApigatewaysPutRequest{
@@ -936,7 +938,7 @@ func (a *APIGatewaysApiService) ApigatewaysPutExecute(r ApiApigatewaysPutRequest
 			}
 			newErr.model = v
 		}
-		if localVarHTTPResponse.StatusCode == 409 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -945,7 +947,7 @@ func (a *APIGatewaysApiService) ApigatewaysPutExecute(r ApiApigatewaysPutRequest
 			}
 			newErr.model = v
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v Error
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
