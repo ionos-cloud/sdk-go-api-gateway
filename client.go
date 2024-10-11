@@ -50,7 +50,7 @@ const (
 	RequestStatusFailed  = "FAILED"
 	RequestStatusDone    = "DONE"
 
-	Version = "1.0.0"
+	Version = "1.1.0"
 )
 
 // APIClient manages communication with the IONOS Cloud - API Gateway API v0.0.1
